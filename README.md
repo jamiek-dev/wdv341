@@ -1,2 +1,2 @@
-# wdv341
-WDV341 Course
+# wdv341 Assignments
+WDV341 course assignments live here.

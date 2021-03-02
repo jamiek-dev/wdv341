@@ -1,0 +1,170 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WDV341 Intro PHP DMACC Web Development</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *,:after,:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}body{font:normal 15px/25px 'Open Sans',Arial,Helvetica,sans-serif;color:#444;text-align:left}h1,h2,h3{font-weight:400}h1{font:normal 40px/120px 'Open Sans',Arial,Helvetica,sans-serif;text-align:center;color:#444;margin:0}h1 span{color:#484c9b}h2{font-size:25px;line-height:30px;color:#484c9b;margin:50px 0 10px}h3{font-size:18px;line-height:35px;margin:50px 0 0}a{color:#484c9b;text-decoration:none}a:focus,a:hover{text-decoration:underline}p{margin:0 0 2rem}p span{color:#aaa}header{width:98%;margin:40px auto 0;border-bottom:1px solid #ddd;padding-bottom:40px;text-align:center}header p{margin:0}section{width:95%;max-width:910px;margin:40px auto}pre{background:#f9f9f9;padding:10px;font-size:12px;border:1px solid #eee;white-space:pre-wrap;border-radius:10px}table{border:1px solid #eee;background:#f9f9f9;width:100%;border-collapse:collapse;border-spacing:0;margin-bottom:3rem}thead{background:#5965af;color:#fff}tbody tr td,thead td{padding:.5rem .75rem}tbody tr:nth-child(even){background:#efefef}tbody tr td:first-child{padding-left:1.25rem}tbody tr td:first-child,tbody tr td:nth-child(3),thead td:first-child,thead td:nth-child(3){width:15%}tbody tr td:nth-child(2),thead td:nth-child(2){width:20%}tbody tr td:last-child,thead td:last-child{width:50%}@media only screen and (min-width:768px){body{font-size:20px;line-height:30px}h2{font-size:30px;line-height:45px}h3{font-size:22px;line-height:45px;margin-top:50px}p{margin-bottom:2rem}h1{font-size:60px}pre{padding:20px;font-size:15px}}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>WDV341 Intro <span>PHP</span></h1>
+        <p>PHP Functions</p>
+    </header>
+    <section>
+        <p>A function is a pre-written piece of code that can be processed repeatedly. This allows for reusability and
+            modularity of code. Information may be passed into a function. This type of information is called a parameter.
+            Functions can accept multiple parameters. The number of parameters and how they will be used are determined when
+            the function is defined or 'written'. </p>
+        <h2>Defining a function</h2>
+        <ul>
+            <li>PHP keyword <strong>function</strong></li>
+            <li>A function can be used/called multiple times. </li>
+            <li>A well written function should only do one primary task. It should contain the code necessary to do that one
+                task. </li>
+            <li>The name of the function should be very descriptive in order to be self documenting.</li>
+            <li>In a Class or an Object a function is often referred to as a &ldquo;Method&rdquo;. All functions are written
+                the same way in a Class as in PHP.</li>
+            <li>In general do not overload functions in PHP. Instead use &lsquo;optional&rsquo; parameters as needed to
+                provide flexibility.</li>
+            <li>Function names are NOT case sensitive</li>
+        </ul>
+        <p><strong>Example</strong> of a function definition:</p>
+<pre>
+function function_name() {
+    // Code to be executed when this function is called
+}
+</pre>
+        <h2>Calling a function</h2>
+        <ul>
+            <li>PHP may call a function by using the name of the function as a command
+<pre>
+calculate_sales_total();
+</pre>
+            </li>
+            <li>A PHP object may call a function &quot;method&quot; that is part of the object
+<pre>
+$month_to_date_sales->calculate_sales_total();
+</pre>
+            </li>
+            <li>PHP may call a static function from the class without using an object by accessing the Class.
+<pre>
+Class_Name::function_name();
+</pre>
+            </li>
+        </ul>
+        <h2>Parameters / arguments of a function</h2>
+        <ul>
+            <li>A function may be written to accept one or more parameters or arguments when it is defined</li>
+            <li>Place a variable name within the ( ) of the function definition for each parameter the function is allowed
+                to process.</li>
+            <li>Separate parameters/variable names with a ',' if there are more than one for the function.</li>
+            <li>When calling a function with one or more parameters pass the required number of variables within the ( ) of
+                the function
+<pre>
+$process_month = 'July';
+display_month($process_month); // Calls the function and passes 'July' into it to be used
+</pre>
+                <p><strong>Example</strong> of a function definition with one parameter/argument</p>
+<pre>
+function display_month($month) {
+    echo $month;
+}
+</pre>
+            </li>
+        </ul>
+        <ul>
+            <li>When calling a function with one or more parameters pass the required number of variables within the ( ) of
+                the function
+<pre>
+$starting_month = 'July';
+$last_process_month = 'October';
+display_time_period($starting_month, $last_process_month);
+</pre>
+                <p><strong>Example</strong> of a function definition with two parameters/arguments</p>
+<pre>
+function display_time_period($start_month, $end_month) {
+    echo "$start_month through $end_month"; // Will output as a rendered string
+}
+</pre>
+            </li>
+        </ul>
+        <h2>Returning Values from a function</h2>
+        <ul>
+            <li>Functions can 'return' a processed value back to where it was called.</li>
+            <li>This is useful for getting information from an object or having a process performed on a piece of data as
+                part of several steps.</li>
+            <li>Use the keyword return and a variable name when defining the function.</li>
+            <li>A function can only return one value.
+                <ul>
+                    <li><strong>Note</strong>: It may however return an array or an object which may contain multiple
+                        values. </li>
+                </ul>
+            </li>
+            <li>The returned value must be captured in a variable or processed at the point it was called. 
+                <p><strong>Example</strong> of a function definition that returns a value instead of displaying the result.</p>
+<pre>
+function get_page_count() {
+    return $page_count; // Returns the current value of this variable
+}
+</pre>
+                <p><strong>Example</strong> of the call to the function. The value of the returned variable will be placed
+<pre>&lt;h4&gt;Page Number: &lt;?=get_page_count()?&gt;&lt;/h4&gt;</pre>
+            </li>
+        </ul>
+
+        <h2>Variable Scope</h2>
+        <p>Variable Scope is used to determine whether or not a variable is available to be used. The Scope of a variable is
+            determined by how and where it is defined. PHP has two levels of variable scope. </p>
+        <ul>
+            <li>Local Scope
+                <ul>
+                    <li>A variable defined within a function has local scope.</li>
+                    <li>It is only available to the function. </li>
+                    <li>It cannot be used outside of the function.</li>
+                    <li>It will be destroyed as soon as the function is complete.
+                        <ul>
+                            <li><strong>Note:</strong> The PHP keyword <strong>static</strong> can be used to define a local
+                                variable that retains its value after the function is complete</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Global Scope
+                <ul>
+                    <li>A variable defined within the page but NOT within a function has global scope.</li>
+                    <li>This variable is available anywhere within the page of the application.</li>
+                    <li>Generally global scope variables are defined near the top of the application page.</li>
+                    <li>A global variable can be used anwhere on the page, including by and within functions called on that
+                        page. </li>
+                    <li>The PHP keyword <strong>global</strong> is used within function definitions to tell the function to
+                        access a global scope variable </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Terminlogy:</h2>
+        <ul>
+            <li><strong>Function</strong> This is a set of code that can be processed/called multiple times by the same
+                page.</li>
+            <li><strong>Method</strong> Another name for function. Often associated with functions defined as part of a
+                Class or object.</li>
+            <li><strong>Scope</strong> This determines where a function is available to be used within an application.
+                Depends upon where the variable is defined.</li>
+            <li><strong>Local</strong> A variable defined within a function has local scope and can only be used within that
+                function.</li>
+            <li><strong>Global</strong> A variable defined outside of a function has global scope and can be used anywhere
+                within the page including other functions.</li>
+            <li><strong>Static</strong> A keyword that allows a local variable to retain its value once the function has
+                completed.</li>
+        </ul>
+    </section>
+</body>
+
+</html>
